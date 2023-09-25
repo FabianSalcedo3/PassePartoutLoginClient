@@ -1,0 +1,17 @@
+<h1 class="text-white mt-3 mb-3">Login</h1>
+<form (ngSubmit)="login()" [formGroup]="userForm">
+  <div class="form-floating mb-3">
+    <input type="email" class="form-control" name="formId1" id="formId1" placeholder="" formControlName="email">
+    <label for="formId1">Email</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="password" class="form-control" name="formId2" id="formId2" placeholder="" formControlName="password">
+    <label for="formId2">Password</label>
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="userForm.invalid">Login</button>
+  <span class="float-end text-white">
+    Non hai un account?
+    <button class="btn btn-outline-primary" type="button" routerLink="register">Registrati
+    </button>
+  </span>
+</form>

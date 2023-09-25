@@ -1,0 +1,40 @@
+<h1 class="text-white mt-3 mb-3">Update</h1>
+<form (ngSubmit)="updateUtente()" novalidate [formGroup]="userForm">
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" name="formId0" id="formId0" placeholder="" formControlName="id">
+    <label for="formId0">Id</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="email" class="form-control" name="formId1" id="formId1" placeholder="" formControlName="email">
+    <label for="formId1">Modifica Email*</label>
+    <div *ngIf="userForm.get('email')?.dirty && userForm.get('email')?.hasError('invalidEmail')"
+      class="alert-danger text-danger">
+      Formato email non valido</div>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="password" class="form-control" name="formId2" id="formId2" placeholder="" formControlName="password">
+    <label for="formId2">Reimposta Password*</label>
+    <div *ngIf="userForm.get('password')?.dirty && userForm.get('password')?.hasError('hasNumber')"
+      class="alert-danger text-danger">La password deve contenere anche numeri</div>
+    <div *ngIf="userForm.get('password')?.dirty && userForm.get('password')?.hasError('hasCapitalCase')"
+      class="alert-danger text-danger">La password deve contenere anche caratteri maiuscoli</div>
+    <div *ngIf="userForm.get('password')?.dirty && userForm.get('password')?.hasError('hasCamelCase')"
+      class="alert-danger text-danger">La password deve contenere anche caratteri minuscoli</div>
+    <div *ngIf="userForm.get('password')?.dirty && userForm.get('password')?.hasError('hasSpecialCharacters')"
+      class="alert-danger text-danger">La password deve contenere almeno un carattere speciale: @ # | ! * </div>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" name="formId3" id="formId3" placeholder="" formControlName="nome">
+    <label for="formId3">Modifica Nome*</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" name="formId4" id="formId4" placeholder="" formControlName="cognome">
+    <label for="formId4">Modifica Cognome*</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" name="formId5" id="formId5" placeholder="" formControlName="citta">
+    <label for="formId5">Modifica Citta*</label>
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="userForm.invalid">Modifica</button>
+  <button type="button" class="btn btn-outline-danger float-end" (click)="logout()">logout</button>
+</form>
